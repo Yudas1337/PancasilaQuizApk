@@ -1,33 +1,22 @@
 <resources>
     <string name="app_name">Pancasila Quiz</string>
 
-    <string name="welcome_1">Selamat Datang di TechPedia</string>
-    <string name="desc_1">TechPedia merupakan platform belajar online khususnya di bidang IT untuk membantu kamu belajar agar lebih mudah dan terarah</string>
+    <string name="welcome_1">Selamat Datang di Pancasila Quiz</string>
+    <string name="desc_1">Pancasila Quiz merupakan aplikasi quiz online yang berguna untuk mengukur ilmu pengetahuan mengenai Pancasila dan Negara </string>
 
-    <string name="why_tech">Mengapa Techpedia?</string>
+    <string name="why_tech">Mengapa Pancasila Quiz?</string>
 
-    <string name="sub_desc2">Pembelajaran yang lengkap</string>
-    <string name="desc_2">Tidak perlu khawatir , TechPedia telah menyediakan banyak modul pembelajaran yang tentunya
-        lengkap
+    <string name="sub_desc2">Soal yang cukup lengkap &amp; Up to Date</string>
+    <string name="desc_2">Tidak perlu khawatir , Pancasila Quiz telah menyediakan pertanyaan yang bervariasi dan beragam
     </string>
 
-    <string name="sub_desc3">Pembelajaran yang gratis</string>
-    <string name="desc_3">Bingung gak punya biaya untuk ikut kelas online ? TechPedia telah menyediakan modul yang
-        pastinya gratis
+    <string name="sub_desc3">Desain UI/UX yang menarik</string>
+    <string name="desc_3">Pancasila Quiz menghadirkan desain yang enak dilihat dan tentunya unggul dalam User Experience dan juga User Interface
     </string>
 
-    <string name="sub_desc4">Inovatif &amp; Up to Date"</string>
-    <string name="desc_4">TechPedia menyediakan modul yang inovatif &amp; tentunya tidak akan membuat kamu bosan serta
-        selalu update sehingga
+    <string name="sub_desc4">Bermain dengan Orang Lain</string>
+    <string name="desc_4">Pancasila Quiz menghadirkan fitur Leaderboards oleh tiap pemainnya. jadi tunggu apalagi ? Buktikan kemampuanmu dengan menjadi yang terhebat diantara pemain lainnya
     </string>
-
-    <string name="sub_desc5">Cepat dan Tepat Waktu</string>
-    <string name="desc_5">TechPedia bekerja secara cepat dan tepat untuk mengintegrasikan tanggung jawab perusahaan
-        dalam bisnis inti kami
-    </string>
-
-    <string name="sub_desc6">Bekerja Secara Profesional</string>
-    <string name="desc_6">TechPedia bekerja secara tim dan tentunya sangat profesional dalam hal pelayanan</string>
 
     <string name="icon_back">Icon Back</string>
 

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <TextView
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="85dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/nunito_bold"
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/why_tech"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/welcome2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/welcome4" />
+
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/welcome2"
+            android:layout_marginTop="-250dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:text="@string/sub_desc4"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:layout_marginRight="15dp" />
+
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/subdesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/desc"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:text="@string/desc_4"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:layout_marginRight="15dp" />
+
+
+
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

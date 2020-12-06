@@ -24,6 +24,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="copyrights">Copyright 2020 &copy; Yudas Malabi - Wira</string>
 
     <!-- ViewPager di fragment home -->
     <string name="welcome_slider">Welcome Slider</string>

@@ -50,6 +50,7 @@
         app:layout_editor_absoluteX="0dp">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/quiz"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginLeft="16dp"

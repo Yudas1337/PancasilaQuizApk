@@ -12,12 +12,12 @@ import retrofit2.http.POST
 interface Functions {
 
     @FormUrlEncoded
-    @POST("register.php")
+    @POST("rest_daftar.php")
     fun register(
-        @Field("nama") nama: String,
-        @Field("email") email: String,
-        @Field("telepon") telepon: String,
-        @Field("password") password: String): Call<Value>
+        @Field("namaUser") namaUser: String,
+        @Field("emailUser") emailUser: String,
+        @Field("hpUser") hpUser: String,
+        @Field("passUser") passUser: String): Call<Value>
 
 //    @FormUrlEncoded
 //    @POST("login.php")

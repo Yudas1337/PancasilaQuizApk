@@ -6,7 +6,21 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_bk"
     tools:context=".auth.RegisterActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/ic_back"
+            android:contentDescription="@string/icon_back"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp" />
+
+    </RelativeLayout>
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -31,7 +45,7 @@
             android:layout_marginTop="@dimen/loginViewsMargin">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextName"
+                android:id="@+id/namaUser"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_name_hint"
                 android:inputType="textPersonName"
@@ -44,7 +58,7 @@
             android:layout_marginTop="@dimen/loginViewsMargin">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextMobile"
+                android:id="@+id/hpUser"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_mobile_number_hint"
                 android:inputType="phone"
@@ -57,7 +71,7 @@
             android:layout_marginTop="@dimen/loginViewsMargin">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextEmail"
+                android:id="@+id/emailUser"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_email_hint"
                 android:inputType="textEmailAddress"
@@ -65,12 +79,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            app:passwordToggleEnabled="true"
             android:id="@+id/textInputPassword"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextPassword"
+
+                android:id="@+id/passUser"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
                 android:inputType="textPassword"
@@ -78,13 +94,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/cirLoginButton"
+            android:id="@+id/daftarButton"
             style="@style/loginButton"
             android:text="Daftar"
             android:layout_gravity="right"
             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
         <TextView
+            android:id="@+id/loginButton"
             style="@style/parent"
             android:textAlignment="textEnd"
             android:textStyle="bold"

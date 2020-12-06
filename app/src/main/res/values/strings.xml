@@ -24,10 +24,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="home">Home</string>
-    <string name="feeds">Feeds</string>
-    <string name="shop">Forum</string>
-    <string name="user">Profile</string>
 
     <!-- ViewPager di fragment home -->
     <string name="welcome_slider">Welcome Slider</string>
@@ -36,13 +32,8 @@
     <string name="login">Login</string>
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>
-    <string name="signup_login_hint">Already have an account? Sign In</string>
-    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
-    <string name="login_name_hint">Name</string>
-    <string name="login_mobile_number_hint">Phone Number</string>
-    <string name="verifyToken">Enter a Token</string>
-    <string name="activeAccount">Activate</string>
-    <string name="activateHeader">Activate Your Account</string>
-    <string name="tambahulasan">Tambah Ulasan</string>
-    <string name="ulasanhint">Ulasan</string>
+    <string name="login_signup_hint">Sudah Punya Akun? Masuk</string>signup_login_hint
+    <string name="signup_login_hint">Belum Punya Akun? Daftar</string>
+    <string name="login_name_hint">Nama</string>
+    <string name="login_mobile_number_hint">No Hp</string>
 </resources>

@@ -44,7 +44,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputPassword"
             style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            app:passwordToggleEnabled="true">
 
             <EditText
                 android:id="@+id/txt_password_login"
@@ -55,13 +56,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/cirLoginButton"
+            android:id="@+id/btnLogin"
             style="@style/loginButton"
             android:text="Masuk"
             android:layout_gravity="right"
             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
         <TextView
+            android:id="@+id/text_daftar"
             style="@style/parent"
             android:textAlignment="textEnd"
             android:textStyle="bold"

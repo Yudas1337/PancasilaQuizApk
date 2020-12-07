@@ -19,13 +19,13 @@ interface Functions {
         @Field("hpUser") hpUser: String,
         @Field("passUser") passUser: String): Call<Value>
 
-//    @FormUrlEncoded
-//    @POST("login.php")
-//    fun login(
-//        @Field("email") email: String,
-//        @Field("password") password: String
-//
-//    ):Call<User>
+    @FormUrlEncoded
+    @POST("rest_login.php")
+    fun login(
+        @Field("emailUser") email: String,
+        @Field("passUser") password: String
+
+    ):Call<User>
 
 }
 

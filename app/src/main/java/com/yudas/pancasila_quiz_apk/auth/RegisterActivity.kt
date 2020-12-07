@@ -17,7 +17,7 @@ import com.yudas.pancasila_quiz_apk.retrofit.Functions
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RegisterActivity : AppCompatActivity() {
+class  RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -94,9 +94,6 @@ class WelcomeActivity : AppCompatActivity() {
         btn_skip!!.setOnClickListener { launchHomeScreen() }
 
         btn_start!!.setOnClickListener { launchHomeScreen() }
-
-
-
     }
 
     private fun addBottomDots(currentPage: Int) {

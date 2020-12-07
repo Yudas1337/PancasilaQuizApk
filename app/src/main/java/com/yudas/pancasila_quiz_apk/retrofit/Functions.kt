@@ -3,6 +3,7 @@ package com.yudas.pancasila_quiz_apk.retrofit
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 /**
@@ -10,6 +11,9 @@ import retrofit2.http.POST
  */
 
 interface Functions {
+
+    @GET("rest_soal.php")
+    fun tampilsoal(): Call<Value>
 
     @FormUrlEncoded
     @POST("rest_daftar.php")

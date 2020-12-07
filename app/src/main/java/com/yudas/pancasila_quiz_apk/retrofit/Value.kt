@@ -6,10 +6,7 @@ open class Value {
         internal set
     var message: String? = null
         internal set
-    var answer: List<Result>? = null
-        internal set
-    var question: List<Result>? = null
-        internal set
+    var result: List<Result>? = null
 
     var isError: Boolean = false
 }

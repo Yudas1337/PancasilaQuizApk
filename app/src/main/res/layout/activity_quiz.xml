@@ -5,5 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menu.QuizActivity">
+    <RelativeLayout
+        android:id="@+id/activity_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E0E0E0"
+        tools:context=".menu.MenuActivity">
+
+        <RelativeLayout
+            android:id="@+id/relative1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            >
+
+            <ImageView
+                android:id="@+id/ic_back"
+                android:layout_margin="15dp"
+                android:src="@drawable/ic_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:tint="@color/colorWhite" />
+
+            <TextView
+                android:id="@+id/back"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/whiteTextColor"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:layout_toEndOf="@+id/ic_back"
+                android:text="Kembali"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ic_back" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_below="@+id/relative1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+            <Button
+                style="@style/startButton"
+                android:fontFamily="@font/nunito_bold"
+                android:layout_centerInParent="true"
+                android:id="@+id/mulaiquiz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mulai Quiz"
+                android:textColor="@color/colorWhite" />
+            <RelativeLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginBottom="-16dp"
+                    app:cardCornerRadius="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginBottom="15dp"
+                        android:id="@+id/recyclersoal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

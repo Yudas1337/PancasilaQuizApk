@@ -28,4 +28,15 @@
     <string name="signup_login_hint">Belum Punya Akun? Daftar</string>
     <string name="login_name_hint">Nama</string>
     <string name="login_mobile_number_hint">No Hp</string>
+
+    // string untuk tutorial
+
+    <string name="tutor1_title">1. Buka Aplikasi Pancasila Quiz</string>
+    <string name="tutor2_title">2. Klik pada Menu Bermain Quiz</string>
+    <string name="tutor3_title">3. Klik Ya untuk Login</string>
+    <string name="tutor4_title">4. Klik link daftar untuk daftar Akun</string>
+    <string name="tutor5_title">5. Isi form daftar lalu klik Daftar!</string>
+    <string name="tutor6_title">6. Login dengan Akun yang baru dibuat</string>
+    <string name="tutor7_title">7. Klik menu Bermain Quiz</string>
+    <string name="tutor8_title">8. Klik Bermain Quiz</string>
 </resources>

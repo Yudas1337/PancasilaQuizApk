@@ -31,4 +31,8 @@ class Preferences(activity: Activity) {
     fun getString(KEY : String, DEFAULT : String) : String? {
         return preferences.getString(KEY, DEFAULT)
     }
+
+    fun clear() {
+       return editor.clear().apply()
+    }
 }

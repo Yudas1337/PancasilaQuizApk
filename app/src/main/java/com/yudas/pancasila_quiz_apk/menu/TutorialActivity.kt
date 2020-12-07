@@ -33,7 +33,7 @@ class TutorialActivity : AppCompatActivity() {
 
         override fun onPageSelected(position: Int) {
             addBottomDots(position)
-
+            layouts?.let { println("asulay"+it.size) }
             // changing the next button text 'NEXT' / 'GOT IT'
             if (position == layouts!!.size - 1) {
                 // last page. make button text to GOT IT
@@ -64,7 +64,8 @@ class TutorialActivity : AppCompatActivity() {
 
         // layouts of all welcome sliders
         // add few more layouts if you want
-        layouts = intArrayOf(R.layout.tutor_slide1, R.layout.tutor_slide2, R.layout.tutor_slide3,R.layout.tutor_slide4)
+        layouts = intArrayOf(R.layout.tutor_slide1, R.layout.tutor_slide2, R.layout.tutor_slide3,R.layout.tutor_slide4
+        ,R.layout.tutor_slide5,R.layout.tutor_slide6,R.layout.tutor_slide7,R.layout.tutor_slide8)
 
         // adding bottom dots
         addBottomDots(0)
@@ -131,7 +132,7 @@ class TutorialActivity : AppCompatActivity() {
 
             val view = layoutInflater!!.inflate(layouts!![position], container, false)
             container.addView(view)
-
+            println("ASU"+position)
             return view
         }
 

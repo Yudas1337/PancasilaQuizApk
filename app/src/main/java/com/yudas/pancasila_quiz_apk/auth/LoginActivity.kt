@@ -66,6 +66,7 @@ class LoginActivity : AppCompatActivity() {
                         if (value != null) {
                             if (!value.isError) {
                                 Preferences(this@LoginActivity).setInt("STATUS_LOGIN", value.idUser)
+                                Preferences(this@LoginActivity).setString("NAMA_USER", value.namaUser)
 
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                                 startActivity(intent)

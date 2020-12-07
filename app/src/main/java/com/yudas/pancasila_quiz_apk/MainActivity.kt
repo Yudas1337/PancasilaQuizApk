@@ -26,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         //        SharedPreferences
         val preference = Preferences(this)
 
+        if (preference.getString("NAMA_USER", "")?.isEmpty()!!) {
+            judulnya.setText("Pancasila Quiz")
+        }else{
+            judulnya.setText("Hai, "+preference.getString("NAMA_USER",""))
+        }
 
         quiz.setOnClickListener{
             if (preference.getInt("STATUS_LOGIN", 0) == 0){

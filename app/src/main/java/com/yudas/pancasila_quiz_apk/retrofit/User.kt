@@ -8,4 +8,5 @@ class User {
 
     // data user
     var idUser: Int = 0
+    var namaUser: String? = null
 }

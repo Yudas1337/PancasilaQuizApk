@@ -12,6 +12,7 @@ class Preferences(activity: Activity) {
     private val preferences : SharedPreferences = activity.getSharedPreferences("Preferences", Context.MODE_PRIVATE);
     private val editor : SharedPreferences.Editor = preferences.edit()
 
+//    Integer
     fun setInt(KEY : String, VALUE : Int){
         editor.putInt(KEY, VALUE)
         editor.apply()
@@ -21,5 +22,13 @@ class Preferences(activity: Activity) {
         return preferences.getInt(KEY, DEFAULT)
     }
     
+//    String
+    fun setString(KEY : String, VALUE : String?){
+        editor.putString(KEY, VALUE)
+        editor.apply()
+    }
 
+    fun getString(KEY : String, DEFAULT : String) : String? {
+        return preferences.getString(KEY, DEFAULT)
+    }
 }

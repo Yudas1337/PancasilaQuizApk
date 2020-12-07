@@ -26,11 +26,12 @@ class MainActivity : AppCompatActivity() {
         //        SharedPreferences
         val preference = Preferences(this)
 
+
         quiz.setOnClickListener{
             if (preference.getInt("STATUS_LOGIN", 0) == 0){
                 val builder : AlertDialog.Builder = AlertDialog.Builder(this)
                 builder.setTitle("Pemberitahuan")
-                builder.setMessage("Apakah anda ingin login ?")
+                builder.setMessage("Anda harus Login untuk mengakses fitur ini !")
 
 
                 builder.setPositiveButton("Ya", DialogInterface.OnClickListener { dialog, which ->

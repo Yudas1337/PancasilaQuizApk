@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.yudas.pancasila_quiz_apk.MainActivity
 import com.yudas.pancasila_quiz_apk.R
 import com.yudas.pancasila_quiz_apk.URL
 import com.yudas.pancasila_quiz_apk.menu.QuizActivity
@@ -66,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
                             if (!value.isError) {
                                 Preferences(this@LoginActivity).setInt("STATUS_LOGIN", value.idUser)
 
-                                val intent = Intent(this@LoginActivity, QuizActivity::class.java)
+                                val intent = Intent(this@LoginActivity, MainActivity::class.java)
                                 startActivity(intent)
                                 finish()
                             }

@@ -22,7 +22,7 @@
         <TextView
             android:textSize="20sp"
             android:text="@string/app_name"
-            android:id="@+id/user_id"
+            android:id="@+id/judulnya"
             android:fontFamily="@font/nunito_bold"
             android:textColor="@color/colorWhite"
             android:layout_marginTop="32dp"

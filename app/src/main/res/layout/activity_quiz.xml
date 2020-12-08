@@ -1,135 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:background="#E0E0E0"
     tools:context=".menu.QuizActivity">
+
     <RelativeLayout
-        android:id="@+id/activity_view"
+        android:id="@+id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/ic_back"
+            android:layout_margin="15dp"
+            android:src="@drawable/ic_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/judul"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/whiteTextColor"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:layout_toEndOf="@+id/ic_back"
+            android:text="Kembali "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ic_back" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeatas"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_margin="5dp"
+            android:id="@+id/txt_skor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skor : "
+            android:textSize="20dp"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_toRightOf="@+id/txt_skor"
+            android:layout_margin="5dp"
+            android:id="@+id/skornya"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/relativeatas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E0E0E0"
-        tools:context=".menu.MenuActivity">
-
+        android:background="@color/colorPrimary">
         <RelativeLayout
-            android:id="@+id/relative1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            >
-
-            <ImageView
-                android:id="@+id/ic_back"
-                android:layout_margin="15dp"
-                android:src="@drawable/ic_back"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                app:tint="@color/colorWhite" />
-
-            <TextView
-                android:id="@+id/back"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="@color/whiteTextColor"
-                android:layout_margin="10dp"
-                android:padding="5dp"
-                android:layout_toEndOf="@+id/ic_back"
-                android:text="Kembali"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/ic_back" />
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_below="@+id/relative1"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary">
-            <Button
-                style="@style/startButton"
-                android:fontFamily="@font/nunito_bold"
-                android:layout_centerInParent="true"
-                android:id="@+id/mulaiquiz"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mulai Quiz"
-                android:textColor="@color/colorWhite" />
-            <RelativeLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_marginBottom="-16dp"
-                    app:cardCornerRadius="16dp"
+            <androidx.cardview.widget.CardView
+                android:layout_marginBottom="-16dp"
+                app:cardCornerRadius="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_below="@+id/relative1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_marginBottom="15dp"
-                        android:id="@+id/recyclersoal"
+                    <Button
+                        style="@style/startButton"
+                        android:fontFamily="@font/nunito_bold"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/mulaiquiz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mulai Quiz"
+                        android:textColor="@color/colorWhite" />
+                </RelativeLayout>
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/layoutSoal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                <LinearLayout
+                    android:layout_margin="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/txt_soal"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="wrap_content"
+                        android:text="soal"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black"/>
 
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_launcher"
+                        android:id="@+id/fotoSoal"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"/>
 
+                    <Button
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/colorWhite"
+                        android:id="@+id/opsi_a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="jawaban A"
+                        android:background="@drawable/button_answer"/>
 
-                </androidx.cardview.widget.CardView>
+                    <Button
+                        android:background="@drawable/button_answer"
+                        android:textColor="@color/colorWhite"
+                        android:id="@+id/opsi_b"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="jawaban B"
+                        android:layout_marginTop="24dp"/>
 
-            </RelativeLayout>
+                    <Button
+                        android:textColor="@color/colorWhite"
+                        android:id="@+id/opsi_c"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="jawaban C"
+                        android:layout_marginTop="24dp"
+                        android:background="@drawable/button_answer"/>
+
+                    <Button
+                        android:textColor="@color/colorWhite"
+                        android:id="@+id/opsi_d"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="jawaban D"
+                        android:layout_marginTop="24dp"
+                        android:background="@drawable/button_answer"/>
+
+                </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+            </androidx.cardview.widget.CardView>
+
         </RelativeLayout>
     </RelativeLayout>
 
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/txt_soal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="soal"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"/>
-
-        <Button
-            android:id="@+id/opsi_a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="jawaban A"
-            android:layout_marginTop="24dp"
-            android:background="@android:color/holo_blue_dark"/>
-
-        <Button
-            android:id="@+id/opsi_b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="jawaban B"
-            android:layout_marginTop="24dp"
-            android:background="@android:color/holo_blue_dark"/>
-
-        <Button
-            android:id="@+id/opsi_c"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="jawaban C"
-            android:layout_marginTop="24dp"
-            android:background="@android:color/holo_blue_dark"/>
-
-        <Button
-            android:id="@+id/opsi_d"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="jawaban D"
-            android:layout_marginTop="24dp"
-            android:background="@android:color/holo_blue_dark"/>
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

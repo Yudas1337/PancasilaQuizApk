@@ -40,6 +40,13 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
+    override fun onBackPressed()
+    {
+        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        startActivity(intent)
+        this@LoginActivity.finish()
+    }
+
 
     private fun DoLogin() {
         val email = txt_email_login.text.toString()

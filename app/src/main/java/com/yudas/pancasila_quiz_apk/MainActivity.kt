@@ -101,6 +101,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed()
+    {
+        AlertDialog.Builder(this)
+                .setTitle("Peringatan")
+                .setMessage("Anda Yakin Keluar Aplikasi!")
+                .setPositiveButton("Iya") { dialog, which ->
+                    this@MainActivity.finish()
+                }.setNegativeButton("Batal") { dialog, which ->
+                    // do nothing
+                }
+                .show()
+    }
+
     private fun LogoutAct()
     {
         val preference = Preferences(this)

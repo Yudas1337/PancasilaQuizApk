@@ -6,8 +6,6 @@ open class Value {
         internal set
     var message: String? = null
         internal set
-    var answer: List<Result>? = null
-        internal set
     var question: ArrayList<Soal>? = null
         internal set
 

@@ -12,6 +12,8 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import com.yudas.pancasila_quiz_apk.MainActivity
 import com.yudas.pancasila_quiz_apk.URL
 import com.yudas.pancasila_quiz_apk.retrofit.Functions
 import retrofit2.Retrofit
@@ -36,6 +38,13 @@ class  RegisterActivity : AppCompatActivity() {
             finish()
         }
 
+    }
+
+    override fun onBackPressed()
+    {
+        val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+        startActivity(intent)
+        this@RegisterActivity.finish()
     }
 
     private fun DoRegister()
@@ -83,15 +92,5 @@ class  RegisterActivity : AppCompatActivity() {
                 })
             }
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                onBackPressed()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 }

@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu.QuizActivity">
+
+<RelativeLayout
     android:id="@+id/activity_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0E0E0"
-    tools:context=".menu.QuizActivity">
+    android:background="#E0E0E0">
 
     <RelativeLayout
         android:id="@+id/relative1"
@@ -188,3 +192,4 @@
     </RelativeLayout>
 
 </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

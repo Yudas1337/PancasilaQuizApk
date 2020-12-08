@@ -99,7 +99,7 @@ class QuizActivity : AppCompatActivity() {
         val call = api.getSoal()
         call.enqueue(object: Callback<Value> {
             override fun onFailure(call: Call<Value>, t: Throwable) {
-                Toast.makeText(this@QuizActivity,"Loading Data...", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@QuizActivity,t.message, Toast.LENGTH_LONG).show()
             }
 
             override fun onResponse(call: Call<Value>, response: Response<Value>) {
@@ -223,13 +223,14 @@ class QuizActivity : AppCompatActivity() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val api = retrofit.create<Functions>(Functions::class.java)
-        val call = api.ranking(idUser,skor)
+        val call = api.ranking(idUser.toString(),skor.toString())
         call.enqueue(object : Callback<Value> {
             override fun onResponse(call: Call<Value>, response: Response<Value>) {
                 val value = response.body() as Value
                 if (value != null) {
                     if (!value.isError) {
                         val intent = Intent(this@QuizActivity, ResultActivity::class.java)
+                        intent.putExtra("skor",skor.toString())
                         startActivity(intent)
                         this@QuizActivity.finish()
                     }
@@ -239,6 +240,7 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
             override fun onFailure(call: Call<Value>, t: Throwable) {
+                dialog.dismiss()
                 Toast.makeText(this@QuizActivity, "Mohon Periksa Koneksi Internet!", Toast.LENGTH_SHORT).show()
                 storeAkhir()
             }

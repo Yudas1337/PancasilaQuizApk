@@ -1,9 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menu.ResultActivity">
+    tools:context=".menu.QuizActivity">
 
+<RelativeLayout
+    android:layout_margin="10dp"
+    android:id="@+id/activity_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".menu.QuizActivity">
+
+    <RelativeLayout
+        android:layout_above="@+id/layoutSkor"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Skor Akhir Anda Adalah : "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutSkor"
+        android:layout_above="@+id/lay_button1"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/skorAkhir"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/nunito_bold"
+            android:text="2500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="55sp"
+            />
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/lay_button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_margin="5dp"
+                android:background="@drawable/button_answer"
+                android:fontFamily="@font/nunito_bold"
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Main Lagi"
+                android:textColor="@color/colorWhite" />
+            <Button
+                android:layout_margin="5dp"
+                android:layout_toRightOf="@+id/button1"
+                android:background="@drawable/button_answer"
+                android:fontFamily="@font/nunito_bold"
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kembali"
+                android:textColor="@color/colorWhite" />
+
+        </RelativeLayout>
+
+</RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,12 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PancasilaQuizApk"
         android:usesCleartextTraffic="true">
-        <activity android:name=".menu.QuizActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".menu.PengaturanActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".menu.RankingActivity"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".menu.ResultActivity"></activity>
+        <activity
+            android:name=".menu.QuizActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu.PengaturanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu.RankingActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".menu.TutorialActivity"
             android:screenOrientation="portrait" />

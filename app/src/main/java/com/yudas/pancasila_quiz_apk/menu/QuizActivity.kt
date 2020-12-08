@@ -1,5 +1,6 @@
 package com.yudas.pancasila_quiz_apk.menu
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
@@ -13,8 +14,11 @@ import com.yudas.pancasila_quiz_apk.MainActivity
 import com.yudas.pancasila_quiz_apk.R
 import com.yudas.pancasila_quiz_apk.URL
 import com.yudas.pancasila_quiz_apk.URL.gambarSoal
+import com.yudas.pancasila_quiz_apk.auth.LoginActivity
+import com.yudas.pancasila_quiz_apk.auth.Preferences
 import com.yudas.pancasila_quiz_apk.retrofit.Functions
 import com.yudas.pancasila_quiz_apk.retrofit.Value
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_quiz.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,6 +34,10 @@ class QuizActivity : AppCompatActivity() {
     private var index = 0
     private lateinit var bankSoal: BankSoal
     internal var kondisi: Boolean = false
+    private var hitung = 15
+    private var minus = 0
+
+    private lateinit var timer: CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,15 +65,27 @@ class QuizActivity : AppCompatActivity() {
 
         }
 
-        val timer = object: CountDownTimer(10000, 1000) {
+        timer = object: CountDownTimer(15000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
+                hitung -= 1
+                if(hitung > 3){
+                    minus = nilaiSoal / hitung
+                    nilaiSoal -= minus
+                } else{
+                    // error handler divided by zero! jgn dihapus
+                }
+
+                println("ASUUU "+nilaiSoal)
+                waktunya.setText(hitung.toString())
             }
 
             override fun onFinish() {
-
+                getSoal()
             }
         }
-        timer.start()
+
+
+
 
         ic_back.setOnClickListener {
             this@QuizActivity.finish()
@@ -155,6 +175,9 @@ class QuizActivity : AppCompatActivity() {
     }
 
     fun getSoal() {
+        hitung = 15
+        timer.cancel()
+        timer.start()
         val nomor = index + 1;
         if(index < bankSoal.soalLength()){
             txt_soal.setText(bankSoal.getSoal(index)[0].toString())
@@ -180,10 +203,46 @@ class QuizActivity : AppCompatActivity() {
             index++
         }
         else{
-            Toast.makeText(this, "skor : "+ skor, Toast.LENGTH_LONG).show()
+            timer.cancel()
+
+            storeAkhir()
         }
 
 
+    }
+
+    private fun storeAkhir()
+    {
+        val preference = Preferences(this)
+        val idUser = preference.getInt("STATUS_LOGIN",0)
+        val dialog = ProgressDialog(this)
+        dialog.setMessage("Loading Skor Akhir..")
+        dialog.show()
+        val retrofit = Retrofit.Builder()
+                .baseUrl(URL.rest)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        val api = retrofit.create<Functions>(Functions::class.java)
+        val call = api.ranking(idUser,skor)
+        call.enqueue(object : Callback<Value> {
+            override fun onResponse(call: Call<Value>, response: Response<Value>) {
+                val value = response.body() as Value
+                if (value != null) {
+                    if (!value.isError) {
+                        val intent = Intent(this@QuizActivity, ResultActivity::class.java)
+                        startActivity(intent)
+                        this@QuizActivity.finish()
+                    }
+                    dialog.dismiss()
+                    Toast.makeText(this@QuizActivity, value.message, Toast.LENGTH_SHORT).show()
+
+                }
+            }
+            override fun onFailure(call: Call<Value>, t: Throwable) {
+                Toast.makeText(this@QuizActivity, "Mohon Periksa Koneksi Internet!", Toast.LENGTH_SHORT).show()
+                storeAkhir()
+            }
+        })
     }
 
 

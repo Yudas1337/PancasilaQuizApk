@@ -63,6 +63,25 @@
             android:textSize="20dp"
             android:textColor="@android:color/white"/>
 
+        <TextView
+            android:layout_toLeftOf="@+id/waktunya"
+            android:layout_margin="5dp"
+            android:id="@+id/label_waktu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Waktu :"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:id="@+id/waktunya"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"/>
+
     </RelativeLayout>
 
     <RelativeLayout

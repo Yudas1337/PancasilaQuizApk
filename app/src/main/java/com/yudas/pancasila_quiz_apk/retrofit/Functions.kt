@@ -24,6 +24,12 @@ interface Functions {
         @Field("passUser") passUser: String): Call<Value>
 
     @FormUrlEncoded
+    @POST("rest_rank.php")
+    fun ranking(
+        @Field("idUser") idUser: Int,
+        @Field("skor") skor: Int): Call<Value>
+
+    @FormUrlEncoded
     @POST("rest_login.php")
     fun login(
         @Field("emailUser") email: String,

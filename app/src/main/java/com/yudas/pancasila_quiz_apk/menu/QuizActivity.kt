@@ -1,7 +1,9 @@
 package com.yudas.pancasila_quiz_apk.menu
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.os.Bundle
@@ -46,6 +48,8 @@ class QuizActivity : AppCompatActivity() {
         bankSoal = BankSoal()
         layoutSoal!!.visibility = View.GONE
         relativeatas!!.visibility = View.GONE
+        mulaiquiz!!.visibility = View.GONE
+
         mulaiquiz.setOnClickListener {
             AlertDialog.Builder(this)
                     .setTitle("Peringatan")
@@ -74,8 +78,6 @@ class QuizActivity : AppCompatActivity() {
                 } else{
                     // error handler divided by zero! jgn dihapus
                 }
-
-                println("ASUUU "+nilaiSoal)
                 waktunya.setText(hitung.toString())
             }
 
@@ -90,29 +92,6 @@ class QuizActivity : AppCompatActivity() {
         ic_back.setOnClickListener {
             this@QuizActivity.finish()
         }
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl(URL.rest)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val api = retrofit.create<Functions>(Functions::class.java)
-        val call = api.getSoal()
-        call.enqueue(object: Callback<Value> {
-            override fun onFailure(call: Call<Value>, t: Throwable) {
-                Toast.makeText(this@QuizActivity,t.message, Toast.LENGTH_LONG).show()
-            }
-
-            override fun onResponse(call: Call<Value>, response: Response<Value>) {
-                val data = response.body()
-                    val question = data?.question
-                    for (q in question!!){
-                        bankSoal.setSoal(arrayListOf(q.isiSoal,q.fotoSoal,q.nilaiSoal))
-                        bankSoal.setJawabanBenar(q.kunci_jwb)
-                        bankSoal.setJawaban(arrayListOf(q.opsi_a, q.opsi_b, q.opsi_c, q.opsi_d))
-                    }
-            }
-
-        })
 
 
         opsi_a.setOnClickListener {
@@ -151,6 +130,9 @@ class QuizActivity : AppCompatActivity() {
                 getSoal()
             }
         }
+
+        fetchsoal()
+
     }
 
     override fun onBackPressed()
@@ -158,14 +140,8 @@ class QuizActivity : AppCompatActivity() {
         if(kondisi){
             AlertDialog.Builder(this)
                     .setTitle("Peringatan")
-                    .setMessage("Quiz akan Dibatalkan jika keluar!")
-                    .setPositiveButton("Iya") { dialog, which ->
-                        val intent = Intent(this@QuizActivity, MainActivity::class.java)
-                        startActivity(intent)
-                        this@QuizActivity.finish()
-                        Toast.makeText(this, "Quiz Dibatalkan!", Toast.LENGTH_SHORT).show()
-                    }.setNegativeButton("Batal") { dialog, which ->
-                        // do nothing
+                    .setMessage("Anda harus menyelesaikan kuis terlebih dahulu!")
+                    .setPositiveButton("Ok") { dialog, which ->
                     }
                     .show()
         } else{
@@ -174,7 +150,49 @@ class QuizActivity : AppCompatActivity() {
 
     }
 
-    fun getSoal() {
+    private fun fetchsoal(){
+        val retrofit = Retrofit.Builder()
+                .baseUrl(URL.rest)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        val api = retrofit.create<Functions>(Functions::class.java)
+        val call = api.getSoal()
+        val dialog = ProgressDialog(this)
+        dialog.setMessage("Fetch Soal From Server...")
+        dialog.show()
+        call.enqueue(object: Callback<Value> {
+            override fun onFailure(call: Call<Value>, t: Throwable) {
+                dialog.dismiss()
+                AlertDialog.Builder(this@QuizActivity)
+                        .setTitle("Peringatan")
+                        .setMessage("Tidak dapat Load Soal! Pastikan Koneksi Internet Menyala dan Stabil!")
+                        .setPositiveButton("Muat Ulang") { dialog, which ->
+                            fetchsoal()
+                        }.setNegativeButton("Batal") { dialog, which ->
+                            val intent = Intent(this@QuizActivity, MainActivity::class.java)
+                            startActivity(intent)
+                            this@QuizActivity.finish()
+                        }
+                        .show()
+            }
+
+            override fun onResponse(call: Call<Value>, response: Response<Value>) {
+                Toast.makeText(this@QuizActivity, "Berhasil Load Soal", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+                mulaiquiz!!.visibility = View.VISIBLE
+                val data = response.body()
+                val question = data?.question
+                for (q in question!!){
+                    bankSoal.setSoal(arrayListOf(q.isiSoal,q.fotoSoal,q.nilaiSoal))
+                    bankSoal.setJawabanBenar(q.kunci_jwb)
+                    bankSoal.setJawaban(arrayListOf(q.opsi_a, q.opsi_b, q.opsi_c, q.opsi_d))
+                }
+            }
+
+        })
+    }
+
+    private fun getSoal() {
         hitung = 15
         timer.cancel()
         timer.start()
@@ -210,6 +228,7 @@ class QuizActivity : AppCompatActivity() {
 
 
     }
+
 
     private fun storeAkhir()
     {

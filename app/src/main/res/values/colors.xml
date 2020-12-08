@@ -76,4 +76,10 @@
 
     <color name = "subheader">#1259cf</color>
 
+    <!--colors for light mode-->
+    <color name="contentBodyColor">#FCFCFC</color>
+    <color name="contentTextColorPengaturan">#020000</color>
+    <color name="imageBorderColor">#E01E7A</color>
+    <color name="miniTitle">#2A2E43</color>
+
 </resources>

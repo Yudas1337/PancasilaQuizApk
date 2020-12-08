@@ -1,9 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menu.PengaturanActivity">
+    android:background="@color/contentBodyColor">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/viewParent.headerText"
+                android:layout_toRightOf="@+id/ic_back"
+                android:text="Pengaturan" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileCircleImageView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/imageBorderColor"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/usernameTextView"
+                style="@style/viewParent.headerText"
+                android:text="Username"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/profileCircleImageView"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:id="@+id/emailTextView"
+                style="@style/viewParent.headerText"
+                android:text="email"
+                android:textSize="16sp"
+                android:textColor="#5D5C5C"
+                android:layout_below="@id/usernameTextView"
+                android:layout_toRightOf="@id/profileCircleImageView"/>
+
+
+        </RelativeLayout>
+
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="Profile"/>
+
+        <TextView
+            android:id="@+id/edit_profil"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_edit_profile"
+            android:text="Edit Profile" />
+
+        <TextView
+            android:id="@+id/pengaturan_passwordBaru"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_edit_password"
+            android:layout_marginTop="10dp"
+            android:text="Ganti Password" />
+
+        <TextView
+            android:id="@+id/pengaturan_logout"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_logout"
+            android:text="Logout" />
+
+
+        <TextView
+            style="@style/settingsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pancasila Quiz App"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</ScrollView>

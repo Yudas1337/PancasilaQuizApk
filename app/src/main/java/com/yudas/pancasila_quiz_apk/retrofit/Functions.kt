@@ -39,5 +39,26 @@ interface Functions {
 
     @GET("rest_soal.php")
     fun getSoal():Call<Value>
+
+    @FormUrlEncoded
+    @POST("rest_user.php")
+    fun getUser(
+        @Field("idUser") idUser: Int
+
+    ):Call<User>
+
+    @FormUrlEncoded
+    @POST("rest_edit_profil.php")
+    fun editProfil(
+        @Field("namaUser") namaUser: String,
+        @Field("emailUser") emailUser: String,
+        @Field("hpUser") hpUser: String,
+        @Field("idUser") idUser: Int): Call<Value>
+
+    @FormUrlEncoded
+    @POST("rest_edit_password.php")
+    fun editPassword(
+        @Field("passUser") passUser: String,
+        @Field("idUser") idUser: Int): Call<Value>
 }
 

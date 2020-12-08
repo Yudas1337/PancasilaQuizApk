@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_margin="10dp"
+        android:id="@+id/relativebungkus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_margin="5dp"
+                android:id="@+id/foto"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:cropToPadding="true"
+                android:maxWidth="80dp"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_margin="5dp"
+                android:id="@+id/fotoPiala"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:cropToPadding="true"
+                android:maxWidth="80dp"/>
+
+            <TextView
+                android:textSize="28sp"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="5dp"
+                android:id="@+id/index"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:maxWidth="80dp"/>
+
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:fontFamily="@font/nunito_bold"
+                        android:id="@+id/namaUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nama"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="5dp"/>
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+                    <androidx.cardview.widget.CardView
+                        android:background="@color/colorPrimary"
+                        android:layout_margin="3dp"
+                        android:id="@+id/card1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="3dp"
+                        app:cardCornerRadius="6dp" >
+
+                        <RelativeLayout
+                            android:background="@color/colorPrimary"
+                            android:id="@+id/relativeRarity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+                            <TextView
+                                android:padding="5dp"
+                                android:textColor="@color/colorWhite"
+                                android:id="@+id/labelSkor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Skor Tertinggi : "
+                                android:textSize="15sp"/>
+
+                            <TextView
+                                android:layout_toRightOf="@+id/labelSkor"
+                                android:padding="5dp"
+                                android:textColor="@color/colorWhite"
+                                android:id="@+id/skornya"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Favorite"
+                                android:textSize="15sp"/>
+
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+
+                </RelativeLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>

@@ -9,5 +9,8 @@ open class Value {
     var question: ArrayList<Soal>? = null
         internal set
 
+    var ranking: ArrayList<Ranking>? = null
+        internal set
+
     var isError: Boolean = false
 }

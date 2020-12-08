@@ -47,15 +47,15 @@ class PengaturanActivity : AppCompatActivity() {
 
         pengaturan_logout.setOnClickListener {
             AlertDialog.Builder(this)
-                .setTitle("Peringatan")
-                .setMessage("Apakah anda yakin akan logout?")
-                .setPositiveButton("Iya") { dialog, which ->
-                    LogoutAct()
-                    Toast.makeText(this, "Berhasil Logout!", Toast.LENGTH_SHORT).show()
-                }.setNegativeButton("Batal") { dialog, which ->
-                    // do nothing
-                }
-                .show()
+                    .setTitle("Peringatan")
+                    .setMessage("Apakah anda yakin akan logout?")
+                    .setPositiveButton("Iya") { dialog, which ->
+                        LogoutAct()
+                        Toast.makeText(this, "Berhasil Logout!", Toast.LENGTH_SHORT).show()
+                    }.setNegativeButton("Batal") { dialog, which ->
+                        // do nothing
+                    }
+                    .show()
         }
 
         edit_profil.setOnClickListener {
@@ -65,26 +65,26 @@ class PengaturanActivity : AppCompatActivity() {
             customView.edit_email.setText(mEmail)
 
             val diaog : AlertDialog? = AlertDialog.Builder(this)
-                .setTitle("Edit Profil")
-                .setView(customView)
-                .setNegativeButton("Batal", DialogInterface.OnClickListener { dialog, which ->  })
-                .setPositiveButton("Edit", DialogInterface.OnClickListener { dialog, which ->
-                    mNama = customView.edit_nama.text.toString()
-                    mNoHp = customView.edit_noHp.text.toString()
-                    mEmail = customView.edit_email.text.toString()
+                    .setTitle("Edit Profil")
+                    .setView(customView)
+                    .setNegativeButton("Batal", DialogInterface.OnClickListener { dialog, which ->  })
+                    .setPositiveButton("Edit", DialogInterface.OnClickListener { dialog, which ->
+                        mNama = customView.edit_nama.text.toString()
+                        mNoHp = customView.edit_noHp.text.toString()
+                        mEmail = customView.edit_email.text.toString()
 
-                    when {
-                        mNama.isEmpty() -> customView.edit_nama.setError("Nama tidak boleh kosong !!")
-                        mNoHp.isEmpty() -> customView.edit_noHp.setError("No HP tidak boleh kosong !!")
-                        mEmail.isEmpty() -> customView.edit_email.setError("Email tidak boleh kosong !!")
+                        when {
+                            mNama.isEmpty() -> customView.edit_nama.setError("Nama tidak boleh kosong !!")
+                            mNoHp.isEmpty() -> customView.edit_noHp.setError("No HP tidak boleh kosong !!")
+                            mEmail.isEmpty() -> customView.edit_email.setError("Email tidak boleh kosong !!")
 
-                        else -> {
-                            editProfil()
+                            else -> {
+                                editProfil()
+                            }
                         }
-                    }
 
-                })
-                .show()
+                    })
+                    .show()
 
         }
 
@@ -92,30 +92,30 @@ class PengaturanActivity : AppCompatActivity() {
             val customView: View = layoutInflater.inflate(R.layout.custom_dialog_password, null)
 
             val diaog : AlertDialog? = AlertDialog.Builder(this)
-                .setTitle("Ganti Password")
-                .setView(customView)
-                .setNegativeButton("Batal", DialogInterface.OnClickListener { dialog, which ->  })
-                .setPositiveButton("Selesai", DialogInterface.OnClickListener { dialog, which ->
-                    mPassword = customView.password_baru.text.toString()
+                    .setTitle("Ganti Password")
+                    .setView(customView)
+                    .setNegativeButton("Batal", DialogInterface.OnClickListener { dialog, which ->  })
+                    .setPositiveButton("Selesai", DialogInterface.OnClickListener { dialog, which ->
+                        mPassword = customView.password_baru.text.toString()
 
-                    when{
-                        mPassword.isEmpty() -> customView.password_baru.setError("Password tidak boleh kosong !!")
+                        when{
+                            mPassword.isEmpty() -> customView.password_baru.setError("Password tidak boleh kosong !!")
 
-                        else -> {
-                            editPassword()
+                            else -> {
+                                editPassword()
+                            }
                         }
-                    }
-                })
-                .show()
+                    })
+                    .show()
         }
     }
 
     private fun editPassword()
     {
         val retrofit = Retrofit.Builder()
-            .baseUrl(URL.rest)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+                .baseUrl(URL.rest)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
         val api = retrofit.create<Functions>(Functions::class.java)
         val call = api.editPassword(mPassword, idUser)
         val dialog = ProgressDialog(this)
@@ -142,9 +142,9 @@ class PengaturanActivity : AppCompatActivity() {
     private fun editProfil()
     {
         val retrofit = Retrofit.Builder()
-            .baseUrl(URL.rest)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+                .baseUrl(URL.rest)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
         val api = retrofit.create<Functions>(Functions::class.java)
         val call = api.editProfil(mNama, mEmail, mNoHp, idUser)
         val dialog = ProgressDialog(this)
@@ -171,9 +171,9 @@ class PengaturanActivity : AppCompatActivity() {
     private fun loadUser()
     {
         val retrofit = Retrofit.Builder()
-            .baseUrl(URL.rest)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+                .baseUrl(URL.rest)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
         val api = retrofit.create<Functions>(Functions::class.java)
         val call = api.getUser(idUser)
         val dialog = ProgressDialog(this)
@@ -200,8 +200,8 @@ class PengaturanActivity : AppCompatActivity() {
 
                     val foto = res.fotoUser
                     Picasso.with(this@PengaturanActivity)
-                        .load(URL.fotoProfil + foto)
-                        .into(profileCircleImageView)
+                            .load(URL.fotoProfil + foto)
+                            .into(profileCircleImageView)
 
                     Picasso.with(this@PengaturanActivity).isLoggingEnabled = true
 

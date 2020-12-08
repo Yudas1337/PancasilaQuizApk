@@ -4,6 +4,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
     tools:context=".menu.RankingActivity">
+    <RelativeLayout
+         android:id="@+id/activity_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E0E0E0"
+        tools:context=".menu.MenuActivity">
+
+        <RelativeLayout
+            android:id="@+id/relative1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            >
+
+            <ImageView
+                android:id="@+id/ic_back"
+                android:layout_margin="15dp"
+                android:src="@drawable/ic_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:tint="@color/colorWhite" />
+
+            <TextView
+                android:id="@+id/judulmodules"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/whiteTextColor"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:layout_toEndOf="@+id/ic_back"
+                android:text="Ranking Top 50 Users"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ic_back" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_below="@+id/relative1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeatas"
+            android:background="@color/colorPrimary">
+
+            <androidx.cardview.widget.CardView
+                app:cardElevation="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/searchatascampuran"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="6dp">
+
+                <androidx.appcompat.widget.SearchView
+                    android:layout_height="match_parent"
+                    android:id="@+id/searchmodules"
+                    android:layout_width="match_parent"/>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_below="@+id/relativeatas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_modules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                shimmer:shimmer_duration="1500">
+
+                <!-- Adding 3 rows of placeholders -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/shimmer_kategoribab" />
+                    <include layout="@layout/shimmer_kategoribab" />
+                    <include layout="@layout/shimmer_kategoribab" />
+                    <include layout="@layout/shimmer_kategoribab" />
+                    <include layout="@layout/shimmer_kategoribab" />
+
+                </LinearLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/refreshmodules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclermodules"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

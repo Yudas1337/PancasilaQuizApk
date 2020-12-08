@@ -148,6 +148,7 @@
                         android:layout_height="220dp"/>
 
                     <Button
+                        android:padding="5dp"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/colorWhite"
                         android:id="@+id/opsi_a"
@@ -157,6 +158,7 @@
                         android:background="@drawable/button_answer"/>
 
                     <Button
+                        android:padding="5dp"
                         android:background="@drawable/button_answer"
                         android:textColor="@color/colorWhite"
                         android:id="@+id/opsi_b"
@@ -166,6 +168,7 @@
                         android:layout_marginTop="24dp"/>
 
                     <Button
+                        android:padding="5dp"
                         android:textColor="@color/colorWhite"
                         android:id="@+id/opsi_c"
                         android:layout_width="match_parent"
@@ -175,6 +178,7 @@
                         android:background="@drawable/button_answer"/>
 
                     <Button
+                        android:padding="5dp"
                         android:textColor="@color/colorWhite"
                         android:id="@+id/opsi_d"
                         android:layout_width="match_parent"

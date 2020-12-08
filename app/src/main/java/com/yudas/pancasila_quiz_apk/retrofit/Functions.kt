@@ -40,6 +40,15 @@ interface Functions {
     @GET("rest_soal.php")
     fun getSoal():Call<Value>
 
+    @GET("rest_listrank.php")
+    fun listrank():Call<Value>
+
+    @FormUrlEncoded
+    @POST("rest_searchrank.php")
+    fun searchrank(
+        @Field("search") search: String
+    ):Call<Value>
+
     @FormUrlEncoded
     @POST("rest_user.php")
     fun getUser(

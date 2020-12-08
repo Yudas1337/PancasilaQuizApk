@@ -12,6 +12,9 @@ import retrofit2.http.POST
 
 interface Functions {
 
+    @GET("rest_soal.php")
+    fun tampilsoal(): Call<Value>
+
     @FormUrlEncoded
     @POST("rest_daftar.php")
     fun register(

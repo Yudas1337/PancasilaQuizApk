@@ -14,6 +14,7 @@ import com.yudas.pancasila_quiz_apk.retrofit.Functions
 import com.yudas.pancasila_quiz_apk.retrofit.User
 import com.yudas.pancasila_quiz_apk.retrofit.Value
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_quiz.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,6 +25,10 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        ic_backlogin.setOnClickListener {
+            finish()
+        }
 
         btnLogin.setOnClickListener {
             DoLogin()

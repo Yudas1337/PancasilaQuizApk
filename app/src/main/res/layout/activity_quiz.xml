@@ -4,6 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".menu.QuizActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_soal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="soal"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:id="@+id/opsi_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="jawaban A"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/holo_blue_dark"/>
+
+        <Button
+            android:id="@+id/opsi_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="jawaban B"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/holo_blue_dark"/>
+
+        <Button
+            android:id="@+id/opsi_c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="jawaban C"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/holo_blue_dark"/>
+
+        <Button
+            android:id="@+id/opsi_d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="jawaban D"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/holo_blue_dark"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@ open class Value {
         internal set
     var answer: List<Result>? = null
         internal set
-    var question: List<Result>? = null
+    var question: ArrayList<Soal>? = null
         internal set
 
     var isError: Boolean = false

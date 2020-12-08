@@ -8,8 +8,7 @@ class Result {
     internal var hpUser: String? = null
     internal var passUser: String? = null
     internal var emailUser: String? = null
-
-
+    
 
 
 

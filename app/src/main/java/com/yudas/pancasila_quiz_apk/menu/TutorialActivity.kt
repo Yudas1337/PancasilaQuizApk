@@ -65,7 +65,8 @@ class TutorialActivity : AppCompatActivity() {
         // layouts of all welcome sliders
         // add few more layouts if you want
         layouts = intArrayOf(R.layout.tutor_slide1, R.layout.tutor_slide2, R.layout.tutor_slide3,R.layout.tutor_slide4
-        ,R.layout.tutor_slide5,R.layout.tutor_slide6,R.layout.tutor_slide7,R.layout.tutor_slide8)
+        ,R.layout.tutor_slide5,R.layout.tutor_slide6,R.layout.tutor_slide7,R.layout.tutor_slide8
+        ,R.layout.tutor_slide9,R.layout.tutor_slide10)
 
         // adding bottom dots
         addBottomDots(0)

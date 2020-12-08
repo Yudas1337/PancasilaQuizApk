@@ -54,7 +54,7 @@ class QuizActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                     .setTitle("Peringatan")
                     .setMessage("Pastikan Device anda terhubung dengan Internet!")
-                    .setPositiveButton("Mulai Quiz!") { dialog, which ->
+                    .setPositiveButton("Mulai Quiz") { dialog, which ->
                         mulaiquiz!!.visibility = View.GONE
                         ic_back!!.visibility = View.GONE
                         kondisi = true

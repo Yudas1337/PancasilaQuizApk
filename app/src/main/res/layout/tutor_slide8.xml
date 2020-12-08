@@ -12,7 +12,7 @@
         <TextView
             android:layout_marginEnd="15dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="45dp"
             android:textStyle="bold"
             app:fontFamily="@font/nunito_bold"
             android:id="@+id/title"
@@ -28,7 +28,7 @@
             android:layout_height="500dp"
             android:layout_width="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/tutor7" />
+            android:src="@drawable/tutor8" />
 
 
 

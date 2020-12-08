@@ -38,5 +38,8 @@
     <string name="tutor5_title">5. Isi form daftar lalu klik Daftar!</string>
     <string name="tutor6_title">6. Login dengan Akun yang baru dibuat</string>
     <string name="tutor7_title">7. Klik menu Bermain Quiz</string>
-    <string name="tutor8_title">8. Klik Bermain Quiz</string>
+    <string name="tutor8_title">8. Klik Mulai Quiz</string>
+    <string name="tutor9_title">9. Pastikan Koneksi Internet Menyala, Lalu klik Mulai Quiz</string>
+    <string name="tutor10_title">10. Quiz Berisi 20 Soal secara Acak</string>
+
 </resources>

@@ -1,22 +1,22 @@
 package com.yudas.pancasila_quiz_apk.menu
 
 import android.app.ProgressDialog
-import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
-import androidx.appcompat.app.AppCompatActivity
-import android.view.View
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import com.yudas.pancasila_quiz_apk.BankSoal
 import com.yudas.pancasila_quiz_apk.MainActivity
 import com.yudas.pancasila_quiz_apk.R
 import com.yudas.pancasila_quiz_apk.URL
 import com.yudas.pancasila_quiz_apk.URL.gambarSoal
-import com.yudas.pancasila_quiz_apk.auth.LoginActivity
 import com.yudas.pancasila_quiz_apk.auth.Preferences
 import com.yudas.pancasila_quiz_apk.retrofit.Functions
 import com.yudas.pancasila_quiz_apk.retrofit.Value
@@ -28,6 +28,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
 class QuizActivity : AppCompatActivity() {
 
     private lateinit var mJawabanBenar: String
@@ -36,14 +37,33 @@ class QuizActivity : AppCompatActivity() {
     private var index = 0
     private lateinit var bankSoal: BankSoal
     internal var kondisi: Boolean = false
-    private var hitung = 15
+    private var hitung = 0
     private var minus = 0
+    private lateinit var countdown: MediaPlayer
+    private lateinit var correct: MediaPlayer
+    private lateinit var wrong: MediaPlayer
+    private lateinit var backsound: MediaPlayer
 
     private lateinit var timer: CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
+
+
+        correct = MediaPlayer.create(this, R.raw.correct)
+        countdown = MediaPlayer.create(this,R.raw.countdown)
+        backsound = MediaPlayer.create(this,R.raw.backsound)
+
+
+        val audioManager: AudioManager
+        val actualVolume: Int
+        audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+        actualVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 7, AudioManager.FLAG_SHOW_UI)
+
+
+        wrong   = MediaPlayer.create(this, R.raw.wrong)
 
         bankSoal = BankSoal()
         layoutSoal!!.visibility = View.GONE
@@ -60,6 +80,8 @@ class QuizActivity : AppCompatActivity() {
                         kondisi = true
                         layoutSoal!!.visibility = View.VISIBLE
                         relativeatas!!.visibility = View.VISIBLE
+                        backsound.start()
+                        backsound.isLooping = true
                         getSoal()
                         Toast.makeText(this, "Quiz Dimulai!", Toast.LENGTH_SHORT).show()
                     }.setNegativeButton("Batal") { dialog, which ->
@@ -71,6 +93,11 @@ class QuizActivity : AppCompatActivity() {
 
         timer = object: CountDownTimer(15000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
+
+                if(hitung <= 12){
+                    countdown.start()
+                }
+
                 hitung -= 1
                 if(hitung > 3){
                     minus = nilaiSoal / hitung
@@ -82,6 +109,7 @@ class QuizActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
+                wrong.start()
                 getSoal()
             }
         }
@@ -94,40 +122,85 @@ class QuizActivity : AppCompatActivity() {
         }
 
 
+
         opsi_a.setOnClickListener {
             if (mJawabanBenar == "A"){
+                countdown.release()
+                countdown = MediaPlayer.create(this,R.raw.countdown)
+
+                correct.release()
+                correct =   MediaPlayer.create(this,R.raw.correct)
+                correct.start()
                 skor += nilaiSoal
                 skornya.setText(skor.toString())
                 getSoal()
             }else{
+                countdown.release()
+                countdown = MediaPlayer.create(this,R.raw.countdown)
+                wrong.release()
+                wrong =   MediaPlayer.create(this,R.raw.wrong)
+                wrong.start()
                 getSoal()
             }
         }
         opsi_b.setOnClickListener {
             if (mJawabanBenar == "B"){
+                countdown.release()
+                countdown = MediaPlayer.create(this,R.raw.countdown)
+                correct.release()
+                correct =   MediaPlayer.create(this,R.raw.correct)
+                correct.start()
                 skor += nilaiSoal
                 skornya.setText(skor.toString())
                 getSoal()
             }else{
+                countdown.release()
+                countdown = MediaPlayer.create(this,R.raw.countdown)
+                wrong.release()
+                wrong =   MediaPlayer.create(this,R.raw.wrong)
+                wrong.start()
                 getSoal()
+
             }
         }
         opsi_c.setOnClickListener {
             if (mJawabanBenar == "C"){
+                countdown.release()
+                countdown = MediaPlayer.create(this,R.raw.countdown)
+                correct.release()
+                correct =   MediaPlayer.create(this,R.raw.correct)
+                correct.start()
                 skor += nilaiSoal
                 skornya.setText(skor.toString())
                 getSoal()
             }else{
+                countdown.release()
+                countdown = MediaPlayer.create(this,R.raw.countdown)
+                wrong.release()
+                wrong =   MediaPlayer.create(this,R.raw.wrong)
+                wrong.start()
                 getSoal()
+
             }
         }
         opsi_d.setOnClickListener {
             if (mJawabanBenar == "D"){
+                countdown.release()
+                countdown = MediaPlayer.create(this,R.raw.countdown)
+                correct.release()
+                correct =   MediaPlayer.create(this,R.raw.correct)
+                correct.start()
                 skor += nilaiSoal
                 skornya.setText(skor.toString())
                 getSoal()
             }else{
+                countdown.release()
+                countdown = MediaPlayer.create(this,R.raw.countdown)
+                wrong.release()
+                wrong =   MediaPlayer.create(this,R.raw.wrong)
+                wrong.start()
                 getSoal()
+
             }
         }
 
@@ -160,7 +233,7 @@ class QuizActivity : AppCompatActivity() {
         val dialog = ProgressDialog(this)
         dialog.setMessage("Fetch Soal From Server...")
         dialog.show()
-        call.enqueue(object: Callback<Value> {
+        call.enqueue(object : Callback<Value> {
             override fun onFailure(call: Call<Value>, t: Throwable) {
                 dialog.dismiss()
                 AlertDialog.Builder(this@QuizActivity)
@@ -182,8 +255,8 @@ class QuizActivity : AppCompatActivity() {
                 mulaiquiz!!.visibility = View.VISIBLE
                 val data = response.body()
                 val question = data?.question
-                for (q in question!!){
-                    bankSoal.setSoal(arrayListOf(q.isiSoal,q.fotoSoal,q.nilaiSoal))
+                for (q in question!!) {
+                    bankSoal.setSoal(arrayListOf(q.isiSoal, q.fotoSoal, q.nilaiSoal))
                     bankSoal.setJawabanBenar(q.kunci_jwb)
                     bankSoal.setJawaban(arrayListOf(q.opsi_a, q.opsi_b, q.opsi_c, q.opsi_d))
                 }
@@ -233,7 +306,7 @@ class QuizActivity : AppCompatActivity() {
     private fun storeAkhir()
     {
         val preference = Preferences(this)
-        val idUser = preference.getInt("STATUS_LOGIN",0)
+        val idUser = preference.getInt("STATUS_LOGIN", 0)
         val dialog = ProgressDialog(this)
         dialog.setMessage("Loading Skor Akhir..")
         dialog.show()
@@ -242,14 +315,15 @@ class QuizActivity : AppCompatActivity() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val api = retrofit.create<Functions>(Functions::class.java)
-        val call = api.ranking(idUser.toString(),skor.toString())
+        val call = api.ranking(idUser.toString(), skor.toString())
         call.enqueue(object : Callback<Value> {
             override fun onResponse(call: Call<Value>, response: Response<Value>) {
                 val value = response.body() as Value
                 if (value != null) {
                     if (!value.isError) {
+                        backsound.release()
                         val intent = Intent(this@QuizActivity, ResultActivity::class.java)
-                        intent.putExtra("skor",skor.toString())
+                        intent.putExtra("skor", skor.toString())
                         startActivity(intent)
                         this@QuizActivity.finish()
                     }
@@ -258,6 +332,7 @@ class QuizActivity : AppCompatActivity() {
 
                 }
             }
+
             override fun onFailure(call: Call<Value>, t: Throwable) {
                 dialog.dismiss()
                 Toast.makeText(this@QuizActivity, "Mohon Periksa Koneksi Internet!", Toast.LENGTH_SHORT).show()

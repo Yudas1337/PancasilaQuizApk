@@ -1,8 +1,7 @@
 package com.yudas.pancasila_quiz_apk
 object URL {
-
-    var IP = "https://pancasilaquiz.000webhostapp.com/"
-   // var IP = "http://192.168.1.4/quizPancasila/"
+    // YOUR HOSTING ADDRESS OR LOCAL ADDRESS. (https://github.com/ | http://192.168.1.14/quizPancasila/)
+    var IP = "https://github.com/"
     var rest = IP + "rest/"
     var assets = IP + "assets/img/"
     var gambarSoal = assets + "soal/"

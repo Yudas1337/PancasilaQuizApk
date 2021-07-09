@@ -3,6 +3,9 @@
  A Simple Quiz Game Using Kotlin
  
  This Repo is for the Apk to play the game and the data is from the rest server from quizPancasila Repo's
+ 
+ # Screenshot
+ ![1](screenshot.png)
 
 
 # Crafted With :
